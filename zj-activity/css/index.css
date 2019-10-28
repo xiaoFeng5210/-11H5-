@@ -1,0 +1,161 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+@media screen and (min-device-width:360px) and (max-device-width:374px){
+        html{ font-size:40%;}
+    }
+@media screen and (min-device-width: 375px) and(max-device-width:383px){
+        html{ font-size:50%;}
+    }
+@media screen and (min-device-width: 384px) and(max-device-width:413px){
+        html{ font-size:51.2%;}
+    }
+@media screen and (min-device-width:412px){
+        html{ font-size:54.9%;}
+    }
+@media screen and (min-device-width: 414px){
+        html{ font-size:55.2%;}
+    }
+    
+input{
+    outline: none;
+}
+
+.main{
+    background-color: #560190;
+    position: relative;
+}
+.coupon{
+    width:100vw;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+}
+.import{
+    width:81.33vw;
+    height:12.34vw;
+    border:2px solid rgba(209,134,239,1);
+    border-radius:49px;
+    margin-top: 2.02vw;
+    padding-top:0.3vw ;   
+    padding-left:3.88vw;
+    font-family:Alibaba PuHuiTi;
+    line-height: 1.12vw;
+    font-weight:400;
+    color:rgba(209,134,239,1);
+    background-color: #560190;
+}
+
+
+.access-div{
+    background-image: url(../img/access.png);
+    background-size: 100% 100%;
+    width:81.46vw;
+    height:12.34vw;
+    margin-top:4.59vw;
+    margin-left:9.38vw;
+    padding-top:3.89vw;
+    padding-left:31.46vw;
+}
+.access-div span{
+font-size:1rem;
+font-family:Alibaba PuHuiTi;
+font-weight:1000;
+color:#560190;
+
+}
+.activity-title{
+    margin-top:2.8vw;
+    margin-left:6.67vw;
+}
+.activity-title span{
+font-size:4.2vw;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(255,255,255,1);
+}
+section{
+width:86.4vw;
+height:103.28vw;
+margin-left:7.5vw;
+margin-top:1vw;
+padding:0;
+}
+.main section p{
+    font-size:3.8vw;
+    font-family:PingFang SC;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+}
+
+
+
+.identifying{
+    width:81.33vw;
+    display: flex;
+    justify-content:space-between;
+    transform: translate(0.2vw);
+    margin-top:3vw;
+}
+.identifying-code{
+    width:40vw;
+    height:12.34vw;
+    border:2px solid rgba(209,134,239,1);
+    border-radius:49px;
+    margin-top:3.02vw;
+    padding-top:0.5vw;   
+    padding-left:3.85vw;
+    background-color: #560190;
+    font-size:0.64; 
+    font-family:Alibaba PuHuiTi;
+    line-height: 1.12vw;
+    font-weight:400;
+    color:rgba(209,134,239,1);
+    
+}
+.identifying-submit{
+width:37.33vw;
+height:12.34vw;
+background:rgba(209,134,239,1);
+border-radius:49px;
+margin-top:3.02vw;
+display: flex;
+justify-content: center;
+align-items: center;
+padding:0
+}
+.identifying-submit span{
+font-size: 3.88vw;
+font-family:Alibaba PuHuiTi;
+font-weight:400;
+color:rgba(64,38,140,1);
+line-height:15px;
+}
+
+.bg{
+    display: none;
+    position: absolute;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background-color:rgba(0,0,0,0.6);
+    z-index:1
+}
+.pop{
+    width:70vw;
+    font-size:3.7vw;
+    padding:6vw;
+    border-radius: 14px;
+    background-color: #fff;
+    margin-top:50vh;
+    margin-left:50vw;
+    transform: translate(-50%,-50%);
+}
+

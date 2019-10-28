@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0，minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>白名单页面</title>
+  <link rel="stylesheet" href="./css/white.css">
+</head>
+<body>
+<div class="main">
+  <img class="coupon" src="./img/newlogo.png" alt="购物券">
+  <div class="content">
+    <input type="text" class="import" placeholder="请输入手机号码">
+    <div class="access-div">
+      <span>立即申请</span>
+    </div>
+    <form enctype="multipart/form-data" id="upload">
+      <input type="file" id="file" placeholder="">
+      <div class="access-div2">
+        <span>立即申请</span>
+      </div>
+    </form>
+  </div>
+
+  <div class="bg">
+      <div class="pop">
+          
+      </div>
+    </div>
+</div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/index.js"></script>
+<script>
+$('.access-div').on('click', function () {
+  var phone = $('.import').val()
+  var phoneReg = /^[1]([3-9])[0-9]{9}$/
+  if (!phone) {
+    alert('请输入手机号!')
+    return false
+  }
+  if (!phone.match(phoneReg)) {
+    alert('请输入正确的手机号!')
+    return false
+  }
+  $.post(url + '/coupon/double11/upload/single', { phone: phone }).done(function (res) {
+    // res.code === '0000' 提示成功
+    if(res.code === '0000'){
+      alert('成功')
+      // $('.bg').css('display','block')
+      // $('.bg').find('.pop').text('成功')
+    }else{ // else 提示res.message
+     alert('失败')
+    } 
+  })
+})
+
+//上传文件方法！！！
+$('.access-div2').on('click', function () {
+  var files = $('#file').prop('files')
+  var formData = new FormData()
+  formData.append('file', files[0])
+  $.ajax({
+    url: url + '/coupon/double11/upload/multiple/',
+    type: 'post',
+    data: formData,
+    contentType: false,
+    processData: false,
+    dataType: 'json'
+  }).done(function (res) {
+    // res.code === '0000' 提示成功
+    // else 提示res.message
+    if(res.code === '0000'){
+      $('.bg').css('display','block')
+      $('.bg').find('.pop').text('成功')
+    }else{ // else 提示res.message
+      $('.bg').css('display','block')
+      $('.bg').find('.pop').text('失败')
+    } 
+  })
+})
+$('.bg').click(function(){
+      $('.bg').css('display','none')
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0，minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>核销页面</title>
+    <link rel="stylesheet" href="./css/writepage.css">
+</head>
+<body>
+    <div class="main">
+        <img class="coupon" src="./img/newlogo.png" alt="购物券">
+        <div class="content">
+            <input type="text" class="coupon-code" placeholder="请输入6位券码">
+            <input type="text" class="number" placeholder="请输入用户参与活动的手机号码">
+            <div class="write-now"><span>立即核销</span></div>
+        </div>
+        <div class="bg">
+            <div class="pop">
+                
+            </div>
+          </div>
+    </div>
+    <script src="./js/index.js"></script>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        //url配置
+        var phoneReg = /^[1]([3-9])[0-9]{9}$/
+        $('.write-now').on('click',function(){
+            var urlSearch = window.location.search
+            var params = new URLSearchParams(urlSearch)
+            var getPhone = params.get('phone')
+            var getIdent = params.get('ident')
+            var phone = $('.number').val()
+            var coupon = $('.coupon-code').val()
+            var ident = $('.identifying-code').val()
+            if (!phone) {
+                alert('请输入手机号!')
+                return false
+            }
+            if (!phone.match(phoneReg)) {
+                alert('请输入正确的手机号!')
+                return false
+            }
+            if (!coupon) {
+                alert('请输入券码!')
+                return false
+            }
+            
+            $.post(url+'/coupon/double11/exchange/use',{userPhone:phone,couponCode:coupon,employerVerifyCode:getIdent,employerPhone:getPhone})
+            .done(function(res){
+                console.log(res)
+                if(res.code === '9999'){
+                    // 弹窗内容： 您的券码不存在！
+                    $('.bg').css('display','block')
+                    $('.pop').text(res.message)
+                }else{
+                    window.location.href = "success.html?coupon="+ res.data + "&phone=" + getPhone
+                }
+            })
+        })
+
+        $('.bg').click(function(){
+            $('.bg').css('display','none')
+        })
+    </script>
+</body>
+</html>
