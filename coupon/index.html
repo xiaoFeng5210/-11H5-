@@ -35,7 +35,7 @@
   </section>
   <div class="bg">
     <div class="pop">
-        您还没有购买双11嗨购券（若已购买记得明天来领哦）！
+        <!-- 您还没有购买双11嗨购券（若已购买记得明天来领哦）！ -->
     </div>
   </div>
 </div>
@@ -116,6 +116,7 @@ $('.access-div').on('click', function () {
     function (res) {
       if (res.code === '9999') {
         // 处理res.message错误信息,出现一个弹窗。弹窗设置绝对定位，垂直居中。
+        $('.pop').text(res.message)
         $('.bg').css('display','block')
       }else{
           //处理数据，设置localStorage

@@ -49,7 +49,6 @@
             
             $.post(url+'/coupon/double11/exchange/use',{userPhone:phone,couponCode:coupon,employerVerifyCode:getIdent,employerPhone:getPhone})
             .done(function(res){
-                console.log(res)
                 if(res.code === '9999'){
                     $('.bg').css('display','block')
                     $('.pop').text(res.message)

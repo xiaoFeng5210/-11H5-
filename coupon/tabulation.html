@@ -362,6 +362,7 @@
   <div class="loading">
     <div class="pop">
         <img src="./img/loading.gif" alt="正在加载">
+        <p>小沃正在全力加载中...</p>
     </div>
   </div>
 </div>
@@ -392,7 +393,7 @@ function getData () {
         getData()
       }, 4000)
       res.code === status.loading ? insertData(res) :
-        res.code === status.success? insertDone(interval):
+        res.code === status.success? insertDone(res,interval):
           window.location.href = "index.html"
     }
   )
@@ -400,19 +401,18 @@ function getData () {
 
 
 function insertData (res) {
-  $('.loading').css('display','none')
   let temp = res.data
   //for循环遍历temp[i]数组。
   for (let i = 0; i < 10; i++) {
     //立即执行函数。
     (function (item) {
-      $(`[data-sku=${item.sku}]`).find('.coupon-code').text('' + 
-        item.couponCode === null? '处理中': item.couponCode)
+      $(`[data-sku=${item.sku}]`).find('.coupon-code').text(item.couponCode === null? '处理中': '券码:' +item.couponCode)
     })(temp[i])
   }
 }
 
-function insertDone (interval) {
+function insertDone (res,interval) {
+  insertData(res)
   $('.loading').css('display','none')
   clearInterval(interval)
 }
@@ -420,7 +420,7 @@ function insertDone (interval) {
 //$.each遍历copy元素
 $('.copy').each(function (index) {
   $(this).on('click', function () {
-    var couponVal = $('.coupon-code')[index].innerText
+    var couponVal = $('.coupon-code')[index].innerText.substr(3)
     copyCode(couponVal)
   })
 })
