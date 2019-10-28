@@ -51,7 +51,6 @@
             .done(function(res){
                 console.log(res)
                 if(res.code === '9999'){
-                    // 弹窗内容： 您的券码不存在！
                     $('.bg').css('display','block')
                     $('.pop').text(res.message)
                 }else{

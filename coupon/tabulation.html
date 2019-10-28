@@ -375,42 +375,53 @@ let params = new URLSearchParams(urlSearch)
 var getToken = params.get('token')
 //把token和localstorage里的信息对比。
 var token = window.localStorage.getItem('token') ? window.localStorage.getItem('token') : getToken
-//轮询
-var interval = setInterval(function () {
+$(document).ready(function(){
   getData()
-}, 4000)
-
+})
 
 function getData () {
+  var status = {
+    success: '0000',
+    loading:'4000',
+    auth:'4001',
+    error:'9999'
+  }
   $.get(url + '/coupon/double11/collect/load/' + token).done(
     function (res) {
-      $('.loading').css('display','none')
-      res.code === '0000' ? insertData(res) : insertDone()
+      var interval = setInterval(function () {
+        getData()
+      }, 4000)
+      res.code === status.loading ? insertData(res) :
+        res.code === status.success? insertDone(interval):
+          window.location.href = "index.html"
     }
   )
 }
-//
+
+
 function insertData (res) {
+  $('.loading').css('display','none')
   let temp = res.data
   //for循环遍历temp[i]数组。
   for (let i = 0; i < 10; i++) {
     //立即执行函数。
     (function (item) {
-      if (item.couponCode === null) {
-        item.couponCode = '处理中'
-        $(`[data-sku=${item.sku}]`).find('.coupon-code').text('券码:' + item.couponCode)
-      } else {
-        $(`[data-sku=${item.sku}]`).find('.coupon-code').text('券码:' + item.couponCode)
-      }
+      $(`[data-sku=${item.sku}]`).find('.coupon-code').text('' + 
+        item.couponCode === null? '处理中': item.couponCode)
     })(temp[i])
   }
 }
+
+function insertDone (interval) {
+  $('.loading').css('display','none')
+  clearInterval(interval)
+}
+
 //$.each遍历copy元素
 $('.copy').each(function (index) {
   $(this).on('click', function () {
     var couponVal = $('.coupon-code')[index].innerText
-    var couponstr = couponVal.substr(3)
-    copyCode(couponstr)
+    copyCode(couponVal)
   })
 })
 //复制功能实现
@@ -425,10 +436,6 @@ function copyCode (val) {
     document.execCommand('copy')
     alert('复制成功')
   }
-}
-
-function insertDone () {
-  clearInterval(interval)
 }
 
 var urlList = [

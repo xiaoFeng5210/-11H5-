@@ -46,13 +46,7 @@ $('.access-div').on('click', function () {
   }
   $.post(url + '/coupon/double11/upload/single', { phone: phone }).done(function (res) {
     // res.code === '0000' 提示成功
-    if(res.code === '0000'){
-      alert('成功')
-      // $('.bg').css('display','block')
-      // $('.bg').find('.pop').text('成功')
-    }else{ // else 提示res.message
-     alert('失败')
-    } 
+    alert(res.code === '0000'?'成功':'失败') 
   })
 })
 
