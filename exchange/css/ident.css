@@ -3,51 +3,21 @@
     margin: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    font-size: 16px
-}
-
-@media screen and (min-device-width:360px) and (max-device-width:374px) {
-    html {
-        font-size: 40%
-    }
-}
-
-@media screen and (min-device-width:375px) and(max-device-width:383px) {
-    html {
-        font-size: 50%
-    }
-}
-
-@media screen and (min-device-width:384px) and(max-device-width:413px) {
-    html {
-        font-size: 51.2%
-    }
-}
-
-@media screen and (min-device-width:412px) {
-    html {
-        font-size: 54.9%
-    }
-}
-
-@media screen and (min-device-width:414px) {
-    html {
-        font-size: 55.2%
-    }
+    font-size: 16px;
 }
 
 input {
-    outline: 0
+    outline: none;
 }
 
 .main {
+    height: 110vh;
     background-color: #560190;
     position: relative;
-    height:110vh;
 }
 
 .coupon {
-    width: 100vw
+    width: 100vw;
 }
 
 .content {
@@ -63,66 +33,22 @@ input {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column
+    flex-direction: column;
 }
 
-.import {
+.number {
     width: 81.33vw;
-    line-height: 12.34vw;
+    line-height: 14.34vw;
     border: 2px solid rgba(209, 134, 239, 1);
     border-radius: 49px;
     margin-top: 2.02vw;
-    padding-top: .3vw;
-    padding-left: 3.88vw;
+    padding-top: 0.5vw;
+    padding-left: 3.85vw;
+    background-color: #560190;
+    font-size: 0.64;
     font-family: Alibaba PuHuiTi;
     font-weight: 400;
-    color: #b68fc5;
-    background-color: #560190
-}
-
-.access-div {
-    background-image: url(../img/access.png);
-    background-size: 100% 100%;
-    width: 81.46vw;
-    height: 13.78vw;
-    margin-top: 4.59vw;
-    margin-left: 9.38vw;
-    padding-top: 3.89vw;
-    padding-left: 31.46vw
-}
-
-.access-div span {
-    font-size: 4.8vw;
-    font-family: Alibaba PuHuiTi;
-    font-weight: 1000;
-    color: #560190
-}
-
-.activity-title {
-    margin-top: 3.8vw;
-    margin-left: 6.67vw;
-}
-
-.activity-title span {
-    font-size: 3.46vw;
-    font-family: PingFang SC;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 1)
-}
-
-section {
-    width: 86.4vw;
-    /* height: 70vw; */
-    margin-left: 7.5vw;
-    margin-top: 1vw;
-    padding: 0
-}
-
-.main section p {
-    font-size: 3.2vw;
-    font-family: PingFang SC;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 1)
+    color: rgba(209, 134, 239, 1);
 }
 
 .identifying {
@@ -133,33 +59,34 @@ section {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-transform: translate(.2vw);
-    -ms-transform: translate(.2vw);
-    transform: translate(.2vw);
-    margin-top: 3vw
+    -webkit-transform: translate(0.2vw);
+    -ms-transform: translate(0.2vw);
+    transform: translate(0.2vw);
+    margin-top: 2vw;
 }
 
 .identifying-code {
     width: 40vw;
-    line-height: 12.34vw;
+    line-height: 13.34vw;
     border: 2px solid rgba(209, 134, 239, 1);
     border-radius: 49px;
     margin-top: 3.02vw;
-    padding-top: .5vw;
+    padding-top: 0.5vw;
     padding-left: 3.85vw;
     background-color: #560190;
-    font-size: .64;
+    font-size: 0.64;
     font-family: Alibaba PuHuiTi;
     font-weight: 400;
-    color: rgba(209, 134, 239, 1)
+    color: rgba(209, 134, 239, 1);
+
 }
 
 .identifying-submit {
     width: 37.33vw;
-    height: 13.34vw;
+    height: 14.34vw;
     background: rgba(209, 134, 239, 1);
     border-radius: 49px;
-    margin-top: 3.02vw;
+    margin-top: 3.8vw;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -177,16 +104,39 @@ section {
     font-family: Alibaba PuHuiTi;
     font-weight: 400;
     color: rgba(64, 38, 140, 1);
-    line-height: 15px
+    line-height: 15px;
 }
+
+.validation-submittals {
+    background-image: url(../img/access.png);
+    width: 81.33vw;
+    height: 14.34vw;
+    background-size: 100% 100%;
+    margin-top: 5.3vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 3.56vw;
+}
+
+.validation-submittals span {
+    font-size: 4.8vw;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 700;
+    color: rgba(86, 1, 144, 1);
+}
+
 
 .bg {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 1
 }
 
@@ -200,7 +150,7 @@ section {
     margin-left: 50vw;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
 }
 
 ::-webkit-input-placeholder {

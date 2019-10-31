@@ -4,134 +4,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no，minimum-scale=1.0">
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no，minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>获取权益页面</title>
   <link rel="stylesheet" href="./css/index.css">
-  
 </head>
 
 <body>
-<div class="main">
-  <img class="coupon" src="./img/newlogo.png" alt="购物券">
-  <div class="content">
-    <input type="text" class="import" placeholder="请输入手机号码">
-    <div class="identifying">
-      <div><input type="text" class="identifying-code" placeholder="请输入验证码"></div>
-      <div class="identifying-submit"><span>获取验证码</span></div>
+  <div class="main">
+    <img class="coupon" src="./img/newlogo.png" alt="购物券">
+    <div class="content">
+      <input type="text" class="import" placeholder="请输入手机号码">
+      <div class="identifying">
+        <div><input type="text" class="identifying-code" placeholder="请输入验证码"></div>
+        <div class="identifying-submit"><span>获取验证码</span></div>
+      </div>
     </div>
-  </div>
-  <div class="access-div">
-    <span>获取权益</span>
-  </div>
-  <div class="activity-title">
-    <span>活动规则说明</span>
-  </div>
-  <section>
-    <p>1、2019年11月1日-11日期间通过天猫浙江联通官方旗舰店购买“双11嗨购券”即可享受店铺抽奖、1000元购机组合券、210元天猫购物组合券、10元话费充值满减券（仅限浙江联通用户）、100M宽带提速至200M等多重好礼。
-    </p>
-    <p>2、活动期间每位用户（同一淘宝账号）仅限参与一次。</p>
-    <p>3、部分权益数量有限，先到先得。</p>
-  </section>
-  <div class="bg">
-    <div class="pop">
+    <div class="access-div">
+      <span>获取权益</span>
+    </div>
+    <div class="activity-title">
+      <span>活动规则说明</span>
+    </div>
+    <section>
+      <p>
+        1、2019年11月1日-11日期间通过天猫浙江联通官方旗舰店购买“双11嗨购券”即可享受店铺抽奖、1000元购机组合券、210元天猫购物组合券、10元话费充值满减券（仅限浙江联通用户）、100M宽带提速至200M等多重好礼。
+      </p>
+      <p>2、活动期间每位用户（同一淘宝账号）仅限参与一次。</p>
+      <p>3、部分权益数量有限，先到先得。</p>
+    </section>
+    <div class="bg">
+      <div class="pop">
         <!-- 您还没有购买双11嗨购券（若已购买记得明天来领哦）！ -->
+      </div>
     </div>
   </div>
-</div>
 
-<script src="./js/jquery.min.js"></script>
-<script src="./js/index.js"></script>
-<script>
-  //通过JS拿url地址的参数。
-var urlSearch = window.location.search
-let params = new URLSearchParams(urlSearch)
-  //通过正则表达式判断手机号填写正确与否。
-var getPhone = params.get('phone')
-var getToken = params.get('token')
-var phoneReg = /^[1]([3-9])[0-9]{9}$/
-
-var codeUse = true  
-
-if (!!getPhone) {
-  $('.import').val(getPhone)
-  $('.identifying').css('display', 'none')
-}
-//监听填写input事件。
-document.querySelector('.import').oninput = function () {
-  var phone = $('.import').val()
-  $('.identifying').css('display', phone === getPhone ? 'none' : 'flex') //url地址参数和填写的电话相同判定。
-}
-//验证码请求。
-$('.identifying-submit').on('click', function () {
-  var phone = $('.import').val()
-  //手机号判定。
-  if (!phone) {
-    alert('请输入手机号!')
-    return false
-  }
-  if (!phone.match(phoneReg)) {
-    alert('请输入正确的手机号!')
-    return false
-  }
-  //通过节流，请求事件。
-  if(codeUse){
-    codeUse = false
-    $.post(url + '/coupon/double11/collect/verifyCode', { phone: phone }).done(
-      function (res) {
-        //计时器，用户点击后自动倒计时。
-        var timer = null
-        var count = 60
-        timer = setInterval(() => {
-            count--
-            $('.identifying-submit').find('span').text(count+"秒")
-            if(count<=0){
+  <script src="./js/jquery.min.js"></script>
+  <script src="./js/index.js"></script>
+  <script>
+    //通过JS拿url地址的参数，参数一般是这样的形式xxxx.com?id=123&token=12345。
+    var urlSearch = window.location.search
+    let params = new URLSearchParams(urlSearch)
+    //通过正则表达式判断手机号填写正确与否。
+    var getPhone = params.get('phone')
+    var getToken = params.get('token')
+    var phoneReg = /^[1]([3-9])[0-9]{9}$/
+    $('.identifying-code').val('')
+    var codeUse = true
+    //通过拿到的url参数，就不用再用验证码了。
+    if (!!getPhone) {
+      $('.import').val(getPhone)
+      $('.identifying').css('display', 'none')
+    }
+    //监听填写input事件。
+    document.querySelector('.import').oninput = function () {
+      var phone = $('.import').val()
+      $('.identifying').css('display', phone === getPhone ? 'none' : 'flex') //url地址参数和填写的电话相同判定。
+    }
+    //验证码请求。
+    $('.identifying-submit').on('click', function () {
+      var phone = $('.import').val()
+      //手机号判定。
+      if (!phone) {
+        alert('请输入手机号!')
+        return false
+      }
+      if (!phone.match(phoneReg)) {
+        alert('请输入正确的手机号!')
+        return false
+      }
+      //通过节流，请求事件。
+      if (codeUse) {
+        codeUse = false
+        $.post(url + '/coupon/double11/collect/verifyCode', {
+          phone: phone
+        }).done(
+          function (res) {
+            //计时器，用户点击后自动倒计时。
+            var timer = null
+            var count = 60
+            timer = setInterval(() => {
+              count--
+              $('.identifying-submit').find('span').text(count + "秒")
+              if (count <= 0) {
                 clearInterval(timer)
                 $('.identifying-submit').find('span').text("获取验证码")
                 codeUse = true
-            }
-        }, 1000)
-    }) 
-  }
-})
-
-//领取请求
-$('.access-div').on('click', function () {
-  var phone = $('.import').val()
-  var ident = $('.identifying-code').val()
-
-  if (!phone) {
-    alert('请输入手机号!')
-    return false
-  }
-  if (!phone.match(phoneReg)) {
-    alert('请输入正确的手机号!')
-    return false
-  }
-  if (!ident && getPhone !== phone) {
-    alert('请输入验证码!')
-    return false
-  }
-  $.post(url + '/coupon/double11/collect/submit', { phone: phone, verifyCode: ident }).done(
-    function (res) {
-      if (res.code === '9999') {
-        // 处理res.message错误信息,出现一个弹窗。弹窗设置绝对定位，垂直居中。
-        $('.pop').text(res.message)
-        $('.bg').css('display','block')
-      }else{
-          //处理数据，设置localStorage
-          var token = res.data || getToken
-          window.localStorage.setItem('token', `${token}`)
-          window.location.href = 'tabulation.html?token=' + token
+              }
+            }, 1000)
+          })
       }
-    }
-  )
-})
+    })
 
-$('.bg').click(function(){
-    $('.bg').css('display','none')
-})
-</script>
+    //领取请求
+    $('.access-div').on('click', function () {
+      var phone = $('.import').val()
+      var ident = $('.identifying-code').val()
+
+      if (!phone) {
+        alert('请输入手机号!')
+        return false
+      }
+      if (!phone.match(phoneReg)) {
+        alert('请输入正确的手机号!')
+        return false
+      }
+      if (!ident && getPhone !== phone) {
+        alert('请输入验证码!')
+        return false
+      }
+      $.post(url + '/coupon/double11/collect/submit', {
+        phone: phone,
+        verifyCode: ident
+      }).done(
+        function (res) {
+          if (res.code === '9999') {
+            // 处理res.message错误信息,出现一个弹窗。弹窗设置绝对定位，垂直居中。
+            $('.pop').text(res.message)
+            $('.bg').css('display', 'block')
+          } else {
+            //处理数据，设置localStorage
+            var token = res.data || getToken
+            window.localStorage.setItem('token', `${token}`)
+            window.location.href = 'tabulation.html?token=' + token
+          }
+        }
+      )
+    })
+
+    $('.bg').click(function () {
+      $('.bg').css('display', 'none')
+    })
+  </script>
 </body>
 
 </html>

@@ -1,150 +1,136 @@
-*{
+* {
     padding: 0;
-    margin:0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     overflow: hidden;
     font-size: 16px;
 }
-input{
+
+input {
     outline: none;
 }
 
-.main{
-    height: 280vw;
+.main {
+    height: 110vh;
     background-color: #560190;
-}
-.coupon{
-    width:100vw;
-}
-.content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction:column;
-}
-.number{
-    width:81.33vw;
-    height:14.34vw;
-    border:2px solid rgba(209,134,239,1);
-    border-radius:49px;
-    margin-top:4.02vw;
-    padding-top:0.5vw ;   
-    padding-left:3.85vw;
-    background-color: #560190;
-    font-size:0.64; 
-    font-family:Alibaba PuHuiTi;
-    line-height: 1.12vw;
-    font-weight:400;
-    color:rgba(209,134,239,1);
-}
-.write-now{
-    background-image: url(../img/access.png);
-    width:81.33vw;
-    height:14.34vw;
-    background-size: 100% 100%;
-    margin-top:4.02vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.write-now span{
-font-size:4.4vw;
-font-family:Alibaba PuHuiTi;
-font-weight:500;
-color:rgba(86,1,144,1);
-}
-.coupon-code{
-    width:81.33vw;
-    height:14.34vw;
-    border:2px solid rgba(209,134,239,1);
-    border-radius:49px;
-    margin-top:2.02vw;
-    padding-top:0.5vw ;   
-    padding-left:3.85vw;
-    background-color: #560190;
-    font-size:0.64; 
-    font-family:Alibaba PuHuiTi;
-    line-height: 1.12vw;
-    font-weight:400;
-    color:rgba(209,134,239,1);
 }
 
-/* .identifying{
-    width:81.33vw;
-    display: flex;
-    justify-content:space-between;
-    transform: translate(0.2vw);
-    margin-top:2vw;
+.coupon {
+    width: 100vw;
 }
-.identifying-code{
-    width:40vw;
-    height:7.34vw;
-    border:2px solid rgba(209,134,239,1);
-    border-radius:49px;
-    margin-top:2.02vw;
-    padding-top:0.5vh ;   
-    padding-left:3.85vw;
+
+.content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.number {
+    width: 81.33vw;
+    line-height: 14.34vw;
+    border: 2px solid rgba(209, 134, 239, 1);
+    border-radius: 49px;
+    margin-top: 4.02vw;
+    padding-top: 0.5vw;
+    padding-left: 3.85vw;
     background-color: #560190;
-    font-size:0.64; 
-    font-family:Alibaba PuHuiTi;
-    line-height: 1.12vh;
-    font-weight:400;
-    color:rgba(209,134,239,1);
+    font-size: 0.64;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    color: rgba(209, 134, 239, 1);
+}
+
+.write-now {
+    background-image: url(../img/access.png);
+    width: 81.33vw;
+    height: 14.34vw;
+    background-size: 100% 100%;
+    margin-top: 4.02vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
     
 }
-.identifying-submit{
-width:37.33vw;
-height:7.34vh;
-background:rgba(209,134,239,1);
-border-radius:49px;
-margin-top:2.02vh;
-display: flex;
-justify-content: center;
-align-items: center;
-padding:0
+
+.write-now span {
+    font-size: 4.4vw;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 500;
+    color: rgba(86, 1, 144, 1);
+    font-weight: 700;
 }
-.identifying-submit span{
-font-size: 3.88vw;
-font-family:Alibaba PuHuiTi;
-font-weight:400;
-color:rgba(64,38,140,1);
-line-height:15px;
+
+.coupon-code {
+    width: 81.33vw;
+    line-height: 14.34vw;
+    border: 2px solid rgba(209, 134, 239, 1);
+    border-radius: 49px;
+    margin-top: 2.02vw;
+    padding-top: 0.5vw;
+    padding-left: 3.85vw;
+    background-color: #560190;
+    font-size: 0.64;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 400;
+    color: rgba(209, 134, 239, 1);
 }
-.validation-submittals{
-    background-image: url(../img/access.png);
-    width:81.33vw;
-    height:7.34vh;
-    background-size: 100% 100%;
-    margin-top:3.3vh;
-    display: flex;
-    justify-content: center;
-    padding-top:2.111vh;
-    
-} */
-.validation-submittals span{
-font-size:4.4vw;
-font-family:Alibaba PuHuiTi;
-font-weight:500;
-color:rgba(86,1,144,1);
+
+.validation-submittals span {
+    font-size: 4.4vw;
+    font-family: Alibaba PuHuiTi;
+    font-weight: 500;
+    color: rgba(86, 1, 144, 1);
 
 }
 
-.bg{
+.bg {
     display: none;
-    position: absolute;
-    top:0;
-    width:100vw;
-    height:100vh;
-    background-color:rgba(0,0,0,0.6);
-    z-index:1
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1
 }
-.pop{
-    width:70vw;
-    font-size:3.7vw;
-    padding:6vw;
+
+.pop {
+    width: 70vw;
+    font-size: 3.7vw;
+    padding: 6vw;
     border-radius: 14px;
     background-color: #fff;
-    margin-top:50vh;
-    margin-left:50vw;
-    transform: translate(-50%,-50%);
+    margin-top: 50vh;
+    margin-left: 50vw;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+::-webkit-input-placeholder {
+    color: #D186EF
+}
+
+:-moz-placeholder {
+    color: #D186EF
+}
+
+:-ms-input-placeholder {
+    color: #D186EF
 }

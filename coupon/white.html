@@ -10,18 +10,24 @@
 </head>
 <body>
 <div class="main">
-  <img class="coupon" src="./img/newlogo.png" alt="购物券">
-  <div class="content">
-    <input type="text" class="import" placeholder="请输入手机号码">
-    <div class="access-div">
-      <span>立即申请</span>
+    <h1>双11活动白名单上传</h1>
+    <div class="content">
+    <div class="text1"> 
+      <h2>单个上传</h2>
+        <input type="text" class="import" placeholder="请输入手机号码">
+        <div class="access-div phone-upload">
+          <span>上传</span>
+        </div>
     </div>
-    <form enctype="multipart/form-data" id="upload">
-      <input type="file" id="file" placeholder="">
-      <div class="access-div2">
-        <span>立即申请</span>
-      </div>
-    </form>
+   <div class="text2">
+     <h2>多个上传</h2>
+      <form enctype="multipart/form-data" id="upload">
+        <input type="file" id="file" placeholder="选择文件">
+        <div class="access-div file-upload">
+          <span>上传</span>
+        </div>
+      </form>
+   </div>
   </div>
 
   <div class="bg">
@@ -33,7 +39,7 @@
 <script src="./js/jquery.min.js"></script>
 <script src="./js/index.js"></script>
 <script>
-$('.access-div').on('click', function () {
+$('.phone-upload').on('click', function () {
   var phone = $('.import').val()
   var phoneReg = /^[1]([3-9])[0-9]{9}$/
   if (!phone) {
@@ -45,13 +51,12 @@ $('.access-div').on('click', function () {
     return false
   }
   $.post(url + '/coupon/double11/upload/single', { phone: phone }).done(function (res) {
-    // res.code === '0000' 提示成功
-    alert(res.code === '0000'?'成功':'失败') 
+    alert(res.code === '0000'?'成功':res.message) 
   })
 })
 
 //上传文件方法！！！
-$('.access-div2').on('click', function () {
+$('.file-upload').on('click', function () {
   var files = $('#file').prop('files')
   var formData = new FormData()
   formData.append('file', files[0])
@@ -63,21 +68,12 @@ $('.access-div2').on('click', function () {
     processData: false,
     dataType: 'json'
   }).done(function (res) {
-    // res.code === '0000' 提示成功
-    // else 提示res.message
-    if(res.code === '0000'){
-      $('.bg').css('display','block')
-      $('.bg').find('.pop').text('成功')
-    }else{ // else 提示res.message
-      $('.bg').css('display','block')
-      $('.bg').find('.pop').text('失败')
-    } 
+    alert(res.code === '0000'?'成功上传'+res.data+'条':res.message) 
   })
 })
 $('.bg').click(function(){
       $('.bg').css('display','none')
     })
-
 </script>
 </body>
 </html>

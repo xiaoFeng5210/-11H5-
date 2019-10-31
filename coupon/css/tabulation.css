@@ -1,245 +1,336 @@
-*{
+* {
     padding: 0;
-    margin:0;
-    box-sizing: border-box;
-    
+    margin: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box
 }
-.main{
+a{
+    text-decoration: none;
+}
+
+.main {
     background-color: #560190;
     position: relative;
+    padding-bottom: 6.8vw;
 }
-.coupon{
-    width:100vw;
+
+.coupon {
+    width: 100vw
 }
-.tabulation{
-    background-color: #A625C6;
-    width:91.33vw;
-    margin-left:4.53vw;
-    padding-top:0.5vw;
-    padding-bottom: 0.5vw;
+
+.tabulation {
+    background-color: #a625c6;
+    width: 91.33vw;
+    margin-left: 4.53vw;
+    padding-top: .5vw;
+    padding-bottom: 2.5vw;
 }
-.ticket{
+
+.ticket {
     background-image: url(../img/bg.png);
     background-size: 100% 100%;
-    width:86.4vw;
-    height:21.94vw;
-    margin-top:1.59vw;
-    margin-left:2.4vw;
+    width: 86.4vw;
+    height: 21.94vw;
+    margin-top: 1.59vw;
+    margin-left: 2.4vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    position: relative;
+    position: relative
 }
-.ticket .logo img{
-    width:13vw;
-    height:12.74vw;
-    margin-top:5.02vw;
-    margin-left:6vw;
+
+.ticket .logo img {
+    width: 13vw;
+    height: 12.74vw;
+    margin-top: 5.02vw;
+    margin-left: 6vw
 }
-.ticket .title{
-    margin-top:3.3vw;
-    position:absolute;
-    left:28.3vw;
+
+.ticket .title {
+    margin-top:3.55vw;
+    position: absolute;
+    left: 28.3vw
 }
-.ticket .title span{
-    font-size:4vw;
-    font-family:PingFang SC;
-    font-weight:bold;
-    color:rgba(51,51,51,1);
-    line-height:2.32vw;
+
+.ticket .title span {
+    font-size: 4vw;
+    font-family: PingFangSC-Regular;
+    font-weight: 700;
+    color: rgba(51, 51, 51, 1);
+    /* line-height: 2.32vw */
 }
-.ticket .date{
-    margin-top:0.25vw;
+.ticket .date {
+    margin-top:1.9vw;
 }
-.ticket .date span{
-font-size:2vw;
-font-family:PingFang SC;
-font-weight:bold;
-color:rgba(153,153,153,1);
+.ticket .date span {
+    font-size: 3vw;
+    font-family: PingFangSC-Light;
+    font-weight: 700;
+    color: rgba(153, 153, 153, 1)
 }
-.ticket .activity-join{
+.ticket .activity-join {
     background-image: url(../img/btnbg.png);
     background-size: 100% 100%;
-    width:13.6vw;
-    height:6.148vw;
-    margin-top:7.7vw;
+    width: 13.6vw;
+    height: 6.148vw;
+    margin-top: 7.7vw;
     position: absolute;
-    left:71.3vw;
+    left: 71.3vw;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-.ticket .activity-join span{
-font-size:2.8vw;
-font-family:PingFang SC;
-font-weight:bold;
-color:rgba(255,255,255,1);
-line-height:2.32vw;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+            border-radius:3.072vw;
 }
 
-.ticket .price{
-    margin-left:3.55vw;
-    margin-top:7.998vw;
+.ticket .activity-join span {
+    font-size: 2.8vw;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 1);
+    line-height: 2.32vw
 }
-.ticket .price span{
-    font-size:5.733vw;
-    font-family:DIN Alternate;
-    font-weight:bold;
-    color:rgba(255,141,30,1);
-    line-height:2.698vw;
-    }
+
+.ticket .price {
+    margin-left: 4.35vw;
+    margin-top: 9.2vw;
+}
+.bill-charge .price{
+    margin-left:6.55vw;
+}
+
+.ticket .price span {
+    font-size: 5.733vw;
+    font-family: DIN Alternate;
+    font-weight: 700;
+    color: rgba(255, 141, 30, 1);
+    line-height: 2.698vw
+}
 .ticket .footer{
-        margin-top:-0.5vw;
-    }
-.ticket .footer span{
-    font-size:0.4vw;
-    font-family:PingFang SC;
-    font-weight:bold;
-    color:rgba(153,153,153,1);
-    line-height:1.6vw;
-    }
-
-
-.rate-flow{
-    margin-top:2.92vh;
-    margin-left:2.11vw;
-    
+    margin-top:-.7vw;
+}
+.ticket .footer span {
+    font-size: 2.8vw;
+    font-family: PingFangSC-Light;
+    font-weight: 700;
+    color: rgba(153, 153, 153, 1);
+}
+.m100 .price{
+    margin-left:3.55vw
 }
 
-.rate-flow img{
-    width:86.4vw;
-    height:24.73vh;
+.rate-flow {
+    margin-top: 4.8vw;
+    margin-left: 6.5vw;
 }
 
-.activity-item{
+.rate-flow img {
+    width: 86.4vw
+}
+
+.activity-item {
     display: none;
-    width:86.4vw;
-    margin-top:-2.7vh;
-    margin-left:2.4vw;
-    padding-top:4.3vh;
-    padding-left:2.7vh;
-    padding-bottom:7vw;
-    padding-right:2.7vh;
-    background:rgba(240,240,240,1);
-    border-radius:20px; 
+    width: 86.4vw;
+    margin-top: -2.7vh;
+    margin-left: 2.4vw;
+    padding-top: 4.3vh;
+    padding-left: 2.7vh;
+    padding-bottom: 7vw;
+    padding-right: 2.7vh;
+    background: rgba(240, 240, 240, 1);
+    border-radius: 20px
 }
 
-.activity-item section{
-    position: relative;
+.activity-item section {
+    position: relative
 }
-.activity-item .row1{
-    display: flex;
+
+.activity-item .row1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
 }
-.activity-item .row2{
+
+.activity-item .row2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    margin-top:1.27vh;
+    margin-top: 1.27vh
+}
+.coupon11 .row1{
+    margin-top:1.27vw;
 }
 
 .activity-item .coupon-code{
-font-size:3.2vw;
-font-family:PingFang SC;
-font-weight:bold;
-color:rgba(255,141,30,1);
+    font-size: 3.2vw;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: rgba(255, 141, 30, 1)
+}
+.activity-item .tmall-coupon{
+    font-size: 3.2vw;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: rgba(255, 141, 30, 1);
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 56.7vw;
 }
 
-.activity-item .copy{
-border-radius: 2px;
-font-size:3.2vw;
-font-family:PingFang SC;
-font-weight:bold;
-color:rgba(255,141,30,1);
-margin-left:4.26vw;
-border:1px solid rgba(255,141,30,1);
+.activity-item .copy {
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 3.2vw;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: rgba(255, 141, 30, 1);
+    margin-left: 4.26vw;
+    border: 1px solid rgba(255, 141, 30, 1)
 }
-.activity-item .exchange{
-font-size:3.2vw ;
-font-family:PingFang SC;
-font-weight:bold;
-color:rgba(255,141,30,1);
+.activity-item .copy11{
+    cursor: pointer;
+    border-radius: 2px;
+    font-size: 3.2vw;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: rgba(255, 141, 30, 1);
+    margin-left: 4.26vw;
+    border: 1px solid rgba(255, 141, 30, 1)
 }
-.activity-item .link{
-border-radius: 2px;
-font-size:3.2vw;
-font-family:PingFang SC;
-font-weight:bold;
-color:rgba(255,141,30,1);
-margin-left:3.26vw;
-border:1px solid rgba(255,141,30,1);
+/**这个是单行省略号的方法。**/
+.activity-item .exchange {
+    font-size: 3.2vw;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: rgba(255, 141, 30, 1);
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 56.7vw;
 }
-.activity-item .rule{
-width:77.4vw;
-margin-top:1.27vh;
-font-size:3.2vw;
-font-family:PingFangSC-Light;
-font-weight:bold;
-color:rgba(102,102,102,1);
-line-height:31px;
+
+.activity-item .link {
+    border-radius: 2px;
+    font-size: 3.2vw;
+    font-family: PingFang SC;
+    font-weight: 700;
+    color: rgba(255, 141, 30, 1);
+    margin-left: 3.26vw;
+    border: 1px solid rgba(255, 141, 30, 1)
 }
-.activity-item .pack{
+
+.activity-item .rule {
+    width: 77.4vw;
+    margin-top: 1.27vh;
+    font-size: 3.2vw;
+    font-family: PingFangSC-Light;
+    color: rgba(102, 102, 102, 1);
+    line-height: 31px
+}
+
+.activity-item .pack {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: absolute;
-     right:0;
+    right: 0;
+    padding:0;
+}
+
+.activity-item .pack-up {
+    /* width: 8.933vw; */
+    font-size: 2.4vw;
+    font-family: PingFangSC-Light;
+    font-weight: bold;
+    color: rgba(102, 102, 102, 1)
+}
+
+.activity-item img {
+    width: 2.6vw;
     
 }
-.activity-item .pack-up{
-width:8.933vw;
-font-size:3.88vw;
-font-family:PingFangSC-Light;
-font-weight:bold;
-color:rgba(102,102,102,1);
-
+.activity-item .pack-img{
+    display: flex;
+    align-items: center;
 }
-.activity-item .pack-img img{
-    width:3vw;
-}
-
-.loading{
+.loading {
     position: absolute;
-    top:0;
-    width:100vw;
-    height:100%;
-    background-color:rgba(0,0,0,0.6);
-    z-index:1
+    top: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 1
 }
 
-.loading img{
+.loading img {
     display: block;
-    width:25vw;
-    margin-top:44vh;
-    margin-left:50vw;
-    transform: translate(-50%,-44%);
+    width: 25vw;
+    margin-top: 44vh;
+    margin-left: 50vw;
+    -webkit-transform: translate(-50%, -44%);
+        -ms-transform: translate(-50%, -44%);
+            transform: translate(-50%, -44%)
 }
-
-
-.loading .pop{
-    font-size: 20px;
-    font-family:PingFang SC;
+.loading .pop {
+    font-size: 4vw;
+    font-family: PingFang SC;
     color: #fff;
-    text-align: center;
+    text-align: center
 }
-
+input:-moz-read-only {
+    opacity: 0;
+    position: absolute;
+    height: 0;
+    border: none
+}
+/**去掉复制的input框，这个属性表示元素不可被用户编辑的状态**/
 input:read-only {
     opacity: 0;
     position: absolute;
     height: 0;
-    border: none;
+    border: none
 }
 
-
-
-@media screen and (min-device-width:320px) and (max-device-width:350px){
-        html{font-size: 38%;}
+@media screen and (min-device-width:320px) and (max-device-width:350px) {
+    html {
+        font-size: 38%
+    }
 }
-@media screen and (min-device-width:360px) and (max-device-width:374px){
-        html{ font-size:40%;}
+
+@media screen and (min-device-width:360px) and (max-device-width:374px) {
+    html {
+        font-size: 40%
     }
-@media screen and (min-device-width: 375px) and(max-device-width:383px){
-        html{ font-size:50%;}
+}
+
+@media screen and (min-device-width:375px) and(max-device-width:383px) {
+    html {
+        font-size: 50%
     }
-@media screen and (min-device-width: 384px) and(max-device-width:413px){
-        html{ font-size:51.2%;}
+}
+
+@media screen and (min-device-width:384px) and(max-device-width:413px) {
+    html {
+        font-size: 51.2%
     }
-@media screen and (min-device-width:412px){
-        html{ font-size:54.9%;}
+}
+
+@media screen and (min-device-width:412px) {
+    html {
+        font-size: 54.9%
     }
-@media screen and (min-device-width: 414px){
-        html{ font-size:55.2%;}
+}
+
+@media screen and (min-device-width:414px) {
+    html {
+        font-size: 55.2%
     }
+}
